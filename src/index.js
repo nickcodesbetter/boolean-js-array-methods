@@ -138,6 +138,12 @@ const jeepStore = {
 // Output:
 // => {...}
 
+
+
+
+
+
+
 // STORE EXERCISES
 
 // ----- Section ----- **
@@ -179,6 +185,12 @@ const cheapProducts = appleStore.products.filter(
 
 console.log("cheapProducts: ", cheapProducts);
 
+const mappedCheapProducts = cheapProducts.map((product) => {
+  return product.price - 25;
+})
+console.log("product price times 100: ", mappedCheapProducts)
+
+
 // const cheapProducts = function();
 
 // console.log("cheapProducts: ", cheapProducts);
@@ -189,7 +201,7 @@ console.log("cheapProducts: ", cheapProducts);
 // - that takes an array as a parameter
 // - returns an array of products that have an incoming delivery
 const productsThatNeedToBeReceived = appleStore.products.filter(
-  (product) => (product.incomingDelivery = true)
+  (product) => (product.incomingDelivery == true)
 );
 console.log("incoming: ", productsThatNeedToBeReceived);
 // const productsThatNeedToBeReceived = function();
@@ -216,17 +228,28 @@ console.log("out of Stock: ", outOfStockProducts);
 
 // const productsThatNeedToBeOrdered = function();
 
-const productsThatNeedToBeOrdered = apple.products.filter(
-  (product) =>
-    (product.stock.quantity > 100 && product.incomingDelivery = false)
-);
-console.log(product);
+
+// how to do both?
+// const productsThatNeedToBeOrdered = appleStore.products.filter(
+  // if ((product) => product.stock.quantity > 100 || (product) => product.incomingDelivery = false)
+
+  // (product) => product.incomingDelivery = false
+// );
+// console.log("products less than 100: ", productsThatNeedToBeOrdered);
+// console.log("have no incoming delivery ", productsThatNeedToBeOrdered);
+
+
 
 // ----- Section ----- **
 
 // Write a function here...
 // - that takes an array as a parameter
 // - returns an array of products of the type "tablet"
+
+const tabletProducts = appleStore.products.filter(
+  (product) => product.type = ""
+);
+console.log("tablets: ", tabletProducts)
 
 // const tablets = function();
 
@@ -236,13 +259,35 @@ console.log(product);
 // - that takes an array as a parameter
 // - returns an array of products of the type "computer"
 
+// It's inputting whatever the value is for each object rather than filtering for the particular value
+const computerProds = appleStore.products.filter((product) => {
+  return product.type = "computr"
+});
+//  ((product) => (product.type = "computer"))
+
+
+console.log("computers ", computerProds);
 // const computers = function();
+
+appleStore.products.forEach((product) => {
+ console.log("list of products: ", product.stock);
+})
+
+
+
+// Doesn't work?? - *FIXED - forgot to have the first key as appleStore - but now undefined??
+const computersFound = appleStore.products.find((product) => product.type === "computer")
+console.log("computers: ", computersFound)
+
 
 // ----- Section ----- **
 
 // Write a function here...
 // - that takes an array as a parameter
 // - returns an object that represents an "iMac"
+
+const iMacsFound = appleStore.products.find((product) => product.name === "iMac")
+console.log("iMacs: ", iMacsFound)
 
 // const iMac = function();
 
